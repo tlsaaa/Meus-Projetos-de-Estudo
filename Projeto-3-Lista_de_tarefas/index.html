@@ -1,35 +1,14 @@
-<meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ <link rel="stylesheet" href="Styles.css">
+</head>
 
-
-<style>
- body {
-    margin: 0;
-      display:flex;
-      flex-direction: column;
-      align-items: center;
-    }
-section {
-      width: 600px;
-      height: 400px;
-      overflow:auto;
-    
-    }
-
-div{
-    display: block;
-}
-h1{
-    margin-left: 20px;
-}
-li.completed {
-    text-decoration: line-through;}
-    </style>
-
-<body  width: 400px;
-height: 400px;>
-    
-
-<section style=" background-color: rgb(230, 172, 118); " >
+<body>
+  <section style=" background-color: rgb(230, 172, 118); " >
     <h1>Minha Lista de Tarefas</h1>
       <ol id="seq"> 
     </ol>
@@ -39,41 +18,7 @@ height: 400px;>
     <div>
     <input type="submit" id="botao" onclick="entradaTarefa()" value="Submit">
     <button id="entradaTeste" onclick="deleteCompletedTasks()">Apagar itens</button>
-</div>
-
-    
-<script>
- 
-
-function entradaTarefa(){
-
-    var textoRecebido = document.getElementById("entItem");
-
-    if (textoRecebido == ""){
-        alert("POR FAVOR, DIGITE UMA TAREFA")
-        document.getElementById("entItem").focus();
-    }else{
-    var lista  = document.getElementById("seq").innerHTML;
-    lista = lista +"<li > <input type=checkbox onchange=toggleTask(this)>" + textoRecebido.value + "</li>";
-    document.getElementById("seq").innerHTML = lista;
-    document.getElementById("entItem").value = "";
-    document.getElementById("entItem").focus();
-    }
-}  
-
-function toggleTask(checkbox) {
-      const listItem = checkbox.parentNode;
-      listItem.classList.toggle("completed");
-    }
-
-    function deleteCompletedTasks() {
-      const taskList = document.getElementById("seq");
-      const completedItems = taskList.getElementsByClassName("completed");
-      while (completedItems.length > 0) {
-        completedItems[0].remove();
-      }
-    }
-    </script>
-
-
+    </div>
+<script src="apps.js"></script>
 </body>
+</html>

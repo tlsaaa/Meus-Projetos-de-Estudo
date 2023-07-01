@@ -1,5 +1,12 @@
-<meta charset="UTF-8">
-<h1>Jogo de advinha</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Jogo de advinha</h1>
 <br>
 <p>1 voce escolhe um número</p>
 <br>
@@ -22,85 +29,6 @@
 
 
 
-<script>
-
-function sorteia(n){
-    return    Math.round(Math.random() * n);
-}
-
-var x = document.getElementById("ent1");
-var numeroPensado;
-var tentativas = 1;
-var chute =document.getElementById("ent2");
-function verifica(){
-
-   
-    var input = +x.value;
-    console.log(input)
-    if(isNaN(input)){
-        alert("POR FAVOR, DIGITE APENAS NUMEROS");  
-      
-}
-else{
-
-
-
-    document.getElementById("section1").style.display = "block";
-
-    document.getElementById("erro1").style.display = "none";
-    document.getElementById("fim").style.display = "none";
-    document.getElementById("acerto").style.display = "none";
-
-    numeroPensado = sorteia(input);
-    
-
-}
-
-
-
-}
-
-
-function part2(){
-
-var entChute =parseInt(chute.value);
-
-if(entChute>x.value){
-    alert("DIGITE UM NUMERO DE ZERO A " + x.value)
-}else{
-
-    if(tentativas <= 3){
-
-    if(isNaN(entChute)){
-    alert("POR FAVOR, DIGITE APENAS NUMEROS")
-
-}
-else{
-
-if(entChute == numeroPensado){
-    document.getElementById("erro1").style.display = "none";
-    document.getElementById("fim").style.display = "none";
-    document.getElementById("acerto").style.display = "block";
-
-} 
-else  if(tentativas < 3){
-
-       
-     document.getElementById("erro1").style.display = "block"; 
-
-}
-else{
-    document.getElementById("erro1").style.display = "none";
-    document.getElementById("fim").style.display = "block";
-
-}
-}
-        tentativas++;
-        var numTentativa = tentativas;
-        document.getElementById("tentativa").textContent = numTentativa;
-}}}
-
-
-
-
-</script>
+<script src="apps.js"></script>
+</body>
+</html>
