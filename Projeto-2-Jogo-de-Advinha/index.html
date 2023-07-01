@@ -1,0 +1,106 @@
+<meta charset="UTF-8">
+<h1>Jogo de advinha</h1>
+<br>
+<p>1 voce escolhe um número</p>
+<br>
+<p>2 nós sortearemos um numero de zero até o numero que você escolheu.</p>
+<br>
+<p>3 Você chuta um numero de zero até o numero que você escolheu e veja se acertou</p>
+<br>
+<input id="ent1"/>
+<button id="button1" onclick="verifica()">escolha um numero</button>
+<br>
+<section id="section1" style="display: none;">
+<p>sorteamos um numero! agora chute e veja se você acerta qual numero nós sorteamos</p>
+<br>
+<input id="ent2"/>
+<button id="button2" onclick="part2()">chutar esse numero</button>
+</section>
+<p id="acerto" style="display: none;">você acertou!!</p>
+<p id="erro1" style="display: none;">Que pena, você errou, tente novamente. <span id="tentativa">numTentativa</span> tentativa</p>
+<p id="fim" style="display: none;">Que pena, você errou, suas tentativas acabaram</p>
+
+
+
+<script>
+
+function sorteia(n){
+    return    Math.round(Math.random() * n);
+}
+
+var x = document.getElementById("ent1");
+var numeroPensado;
+var tentativas = 1;
+var chute =document.getElementById("ent2");
+function verifica(){
+
+   
+    var input = +x.value;
+    console.log(input)
+    if(isNaN(input)){
+        alert("POR FAVOR, DIGITE APENAS NUMEROS");  
+      
+}
+else{
+
+
+
+    document.getElementById("section1").style.display = "block";
+
+    document.getElementById("erro1").style.display = "none";
+    document.getElementById("fim").style.display = "none";
+    document.getElementById("acerto").style.display = "none";
+
+    numeroPensado = sorteia(input);
+    
+
+}
+
+
+
+}
+
+
+function part2(){
+
+var entChute =parseInt(chute.value);
+
+if(entChute>x.value){
+    alert("DIGITE UM NUMERO DE ZERO A " + x.value)
+}else{
+
+    if(tentativas <= 3){
+
+    if(isNaN(entChute)){
+    alert("POR FAVOR, DIGITE APENAS NUMEROS")
+
+}
+else{
+
+if(entChute == numeroPensado){
+    document.getElementById("erro1").style.display = "none";
+    document.getElementById("fim").style.display = "none";
+    document.getElementById("acerto").style.display = "block";
+
+} 
+else  if(tentativas < 3){
+
+       
+     document.getElementById("erro1").style.display = "block"; 
+
+}
+else{
+    document.getElementById("erro1").style.display = "none";
+    document.getElementById("fim").style.display = "block";
+
+}
+}
+        tentativas++;
+        var numTentativa = tentativas;
+        document.getElementById("tentativa").textContent = numTentativa;
+}}}
+
+
+
+
+</script>
