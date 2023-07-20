@@ -2,7 +2,6 @@ const array = require("./array");
 
 
 function InsertionSort(array){
-    let numdexdoWhile = 0;
     for(atual = 1; atual < array.length; atual++){
         let dadoAtual = array[atual];
         let dadoAnalisado = atual - 1;
