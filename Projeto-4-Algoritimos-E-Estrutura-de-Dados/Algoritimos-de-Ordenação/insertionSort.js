@@ -1,4 +1,4 @@
-const array = require("./array");
+const array = require("/Estruturas-De-Dados/array.js/array");
 
 
 function InsertionSort(array){
